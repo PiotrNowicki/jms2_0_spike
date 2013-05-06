@@ -5,7 +5,6 @@ import javax.ejb.Stateless;
 import javax.jms.*;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import java.util.Date;
 import java.util.UUID;
 
 
@@ -35,7 +34,7 @@ public class JMS11Producer {
 
             MessageProducer producer = session.createProducer(queue);
 
-            BusinessObject payload = new BusinessObject(UUID.randomUUID().toString(), new Date());
+            BusinessObject payload = new BusinessObject(UUID.randomUUID().toString());
 
             ObjectMessage message = session.createObjectMessage();
             message.setObject(payload);
